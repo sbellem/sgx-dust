@@ -27,3 +27,12 @@ Check:
 ``` console
 ls -la /dev/isgx
 ```
+### Removal
+https://github.com/intel/linux-sgx-driver#uninstall-the-intelr-sgx-driver
+
+```bash
+sudo /sbin/modprobe -r isgx \
+&& sudo rm -rf "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx" \
+&& sudo /sbin/depmod \
+&& sudo /bin/sed -i '/^isgx$/d' /etc/modules
+```
