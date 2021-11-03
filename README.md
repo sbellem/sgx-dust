@@ -19,7 +19,7 @@ chmod 777 sgx_linux_x64_driver_*.bin
 Install:
 
 ```console
-sudo ./ sgx_linux_x64_driver_*.bin
+sudo ./sgx_linux_x64_driver_*.bin
 ```
 
 Check:
