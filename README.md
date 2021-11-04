@@ -49,6 +49,8 @@ roy: Have you tried disabling it and enabling it again?
 dev: In the BIOS?
 ```
 
+dev:
+
 ```
 turn computer off
 turn computer on
