@@ -42,10 +42,12 @@ can't install /dev/isgx
 
 imaginary conversation with IT support:
 
+```text
 roy: Have you tried turning it off and on again?
 dev: Yes! Multiple times! I am from the future; the problem is with SGX.
 roy: Have you tried disabling it and enabling it again?
 dev: In the BIOS?
+```
 
 ```
 turn computer off
