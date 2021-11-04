@@ -36,3 +36,25 @@ sudo /sbin/modprobe -r isgx \
 && sudo /sbin/depmod \
 && sudo /bin/sed -i '/^isgx$/d' /etc/modules
 ```
+
+### Troubleshooting
+can't install /dev/isgx 
+
+imaginary conversation with IT support:
+
+roy: Have you tried turning it off and on again?
+dev: Yes! Multiple times! I am from the future; the problem is with SGX.
+roy: Have you tried disabling it and enabling it again?
+dev: In the BIOS?
+
+```
+turn computer off
+turn computer on
+enter BIOS
+disable SGX
+F10
+turn computer off
+enter BIOS
+enable SGX
+F10
+```
