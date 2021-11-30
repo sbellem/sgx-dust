@@ -62,3 +62,8 @@ enter BIOS
 enable SGX
 F10
 ```
+
+#### Some perhaps useful links
+https://github.com/intel/linux-sgx-driver/issues/68 - particularly comment https://github.com/intel/linux-sgx-driver/issues/68#issuecomment-513032868
+
+https://community.intel.com/t5/Intel-Software-Guard-Extensions/Unable-to-uninstall-SGX-Driver/td-p/1186173
