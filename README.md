@@ -117,6 +117,36 @@ enable SGX
 F10
 ```
 
+The above may not work at all.
+
+Using the command `dmesg` can be useful when troubleshooting the installation, e.g.:
+
+```bash
+dmesg | grep -i sgx
+```
+
+If you see something like:
+
+```bash
+[  487.928127] isgx: loading out-of-tree module taints kernel.
+[  487.928182] isgx: module verification failed: signature and/or required key missing - tainting kernel
+[  487.928740] intel_sgx: Intel SGX Driver v2.11.0
+[  487.928761] intel_sgx INT0E0C:00: EPC bank 0x50200000-0x55f80000
+[  487.930749] intel_sgx:  can not reset SGX LE public key hash MSRs
+[  487.930840] intel_sgx: second initialization call skipped
+```
+
+then ... good luck!
+
+Check if there are multiple `isgx.ko` files under `/lib/modules/*/kernel/drivers/intel/sgx`, e.g.:
+
+```bash
+ls -l /lib/modules/*/kernel/drivers/intel/sgx
+```
+
+If not, then I don't know, as I am also stuck on the same problem. If you find an explanation, you are most welcome to share it! Open an issue or pull request! :pray:
+
+
 #### Some perhaps useful links
 https://github.com/intel/linux-sgx-driver/issues/68 - particularly comment https://github.com/intel/linux-sgx-driver/issues/68#issuecomment-513032868
 
