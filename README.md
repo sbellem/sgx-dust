@@ -69,7 +69,7 @@ sudo mkdir -p "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx" \
     && sudo cp isgx.ko "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx" \
     && sudo sh -c "cat /etc/modules | grep -Fxq isgx || echo isgx >> /etc/modules" \    
     && sudo depmod \
-    && sudo modprobe isgx
+    && sudo modprobe --verbose isgx
 ```
 
 
@@ -77,10 +77,10 @@ sudo mkdir -p "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx" \
 https://github.com/intel/linux-sgx-driver#uninstall-the-intelr-sgx-driver
 
 ```bash
-sudo /sbin/modprobe -r isgx \
+sudo modprobe --remove isgx \
 && sudo rm -rf "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx" \
-&& sudo /sbin/depmod \
-&& sudo /bin/sed -i '/^isgx$/d' /etc/modules
+&& sudo depmod \
+&& sudo sed -i '/^isgx$/d' /etc/modules
 ```
 
 ### Troubleshooting
