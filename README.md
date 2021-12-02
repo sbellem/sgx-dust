@@ -8,25 +8,25 @@ Brief steps to install the out-of-tree driver on Ubuntu 20.04, for linux-sgx 2.1
 
 Download:
 
-```console
+```bash
 wget https://download.01.org/intel-sgx/sgx-linux/2.14/distro/ubuntu20.04-server/sgx_linux_x64_driver_2.11.0_2d2b795.bin
 ```
 
 Set permissions:
 
-```console
+```bash
 chmod 777 sgx_linux_x64_driver_*.bin 
 ```
 
 Install:
 
-```console
+```bash
 sudo ./sgx_linux_x64_driver_*.bin
 ```
 
 Check:
 
-``` console
+``` bash
 ls -la /dev/isgx
 ```
 
@@ -35,24 +35,24 @@ The instructions here are for ubuntu. See https://github.com/intel/linux-sgx-dri
 
 Verify that the kernel headers for the active kernel version (`uname -r`) are installed:
 
-```console
+```bash
 dpkg-query -s linux-headers-$(uname -r)
 ```
 If the headers are missing, installed with:
 
-```console
+```bash
 sudo apt-get install linux-headers-$(uname -r)
 ```
 
 Clone the linux-sgx-driver repo:
 
-```console
+```bash
 git clone https://github.com/intel/linux-sgx-driver.git
 ```
-```console
+```bash
 cd linux-sgx-driver
 ```
-```console
+```bash
 git checkout -b sgx_driver_2.14 sgx_diver_2.14
 ```
 
@@ -64,7 +64,7 @@ make
 
 Install:
 
-```console
+```bash
 sudo mkdir -p "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx" \
     && sudo cp isgx.ko "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx" \
     && sudo sh -c "cat /etc/modules | grep -Fxq isgx || echo isgx >> /etc/modules" \    
@@ -97,7 +97,7 @@ dev: In the BIOS?
 
 dev:
 
-```
+```text
 turn computer off
 turn computer on
 enter BIOS
