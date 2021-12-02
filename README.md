@@ -2,6 +2,8 @@
 Notes on working with SGX
 
 ## SGX Driver
+
+### Installation from pre-built binary
 Brief steps to install the out-of-tree driver on Ubuntu 20.04, for linux-sgx 2.14. See more details at https://download.01.org/intel-sgx/sgx-linux/2.14/docs/Intel_SGX_SW_Installation_Guide_for_Linux.pdf.
 
 Download:
@@ -27,7 +29,50 @@ Check:
 ``` console
 ls -la /dev/isgx
 ```
-### Removal
+
+### Installation from source
+The instructions here are for ubuntu. See https://github.com/intel/linux-sgx-driver#build-and-install-the-intelr-sgx-driver for other systems (centOS, RHEL or Fedora).
+
+Verify that the kernel headers for the active kernel version (`uname -r`) are installed:
+
+```console
+dpkg-query -s linux-headers-$(uname -r)
+```
+If the headers are missing, installed with:
+
+```console
+sudo apt-get install linux-headers-$(uname -r)
+```
+
+Clone the linux-sgx-driver repo:
+
+```console
+git clone https://github.com/intel/linux-sgx-driver.git
+```
+
+```console
+cd linux-sgx-driver
+git checkout sgx_diver_2.14
+```
+
+Build the driver
+
+```
+make
+```
+
+Install:
+
+```console
+sudo mkdir -p "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx"    
+sudo cp isgx.ko "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx"    
+sudo sh -c "cat /etc/modules | grep -Fxq isgx || echo isgx >> /etc/modules"    
+sudo depmod
+sudo modprobe isgx
+```
+
+
+#### Removal
 https://github.com/intel/linux-sgx-driver#uninstall-the-intelr-sgx-driver
 
 ```bash
