@@ -65,11 +65,18 @@ make
 Install:
 
 ```bash
-sudo mkdir -p "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx" \
-    && sudo cp isgx.ko "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx" \
-    && sudo sh -c "cat /etc/modules | grep -Fxq isgx || echo isgx >> /etc/modules" \    
-    && sudo depmod \
-    && sudo modprobe --verbose isgx
+sudo mkdir -p "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx"
+```
+```bash
+sudo cp isgx.ko "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx"
+```
+```bash
+sudo sh -c "cat /etc/modules | grep -Fxq isgx || echo isgx >> /etc/modules"
+```
+```bash
+sudo depmod --verbose
+```bash
+sudo modprobe --verbose isgx
 ```
 
 
