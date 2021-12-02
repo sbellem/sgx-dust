@@ -75,6 +75,7 @@ sudo sh -c "cat /etc/modules | grep -Fxq isgx || echo isgx >> /etc/modules"
 ```
 ```bash
 sudo depmod --verbose
+```
 ```bash
 sudo modprobe --verbose isgx
 ```
