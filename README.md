@@ -49,10 +49,11 @@ Clone the linux-sgx-driver repo:
 ```console
 git clone https://github.com/intel/linux-sgx-driver.git
 ```
-
 ```console
 cd linux-sgx-driver
-git checkout sgx_diver_2.14
+```
+```
+git checkout -b sgx_driver_2.14 sgx_diver_2.14
 ```
 
 Build the driver
