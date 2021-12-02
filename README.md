@@ -92,7 +92,7 @@ sudo modprobe --remove isgx \
 ```
 
 ### Troubleshooting
-can't install /dev/isgx 
+can't install `/dev/isgx` 
 
 imaginary conversation with IT support:
 
@@ -117,8 +117,15 @@ enable SGX
 F10
 ```
 
-The above may not work at all.
+The above may not work at all. So below are some things that you may want to check.
 
+**Check whether multiple kernels are installed**
+
+```bash
+lsmod | grep -i sgx
+```
+
+**`dmesg`**
 Using the command `dmesg` can be useful when troubleshooting the installation, e.g.:
 
 ```bash
