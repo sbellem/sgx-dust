@@ -52,7 +52,7 @@ git clone https://github.com/intel/linux-sgx-driver.git
 ```console
 cd linux-sgx-driver
 ```
-```
+```console
 git checkout -b sgx_driver_2.14 sgx_diver_2.14
 ```
 
