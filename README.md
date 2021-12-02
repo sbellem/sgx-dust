@@ -119,13 +119,13 @@ F10
 
 The above may not work at all. So below are some things that you may want to check.
 
-**Check whether multiple kernels are installed**
+#### `lsmod`: Check whether multiple kernels are installed
 
 ```bash
 lsmod | grep -i sgx
 ```
 
-**`dmesg`**
+#### `dmesg`: examine the kernel ring buffer
 Using the command `dmesg` can be useful when troubleshooting the installation, e.g.:
 
 ```bash
